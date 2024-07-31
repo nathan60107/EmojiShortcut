@@ -1,9 +1,4 @@
-/**
- * @name EmojiShortcut
- * @author Nathan60107
- * @description Send emoji faster.
- * @version 0.0.1
- */
+import './index.scss'
 
 module.exports = class MyPlugin {
   constructor(meta) {

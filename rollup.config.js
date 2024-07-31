@@ -28,16 +28,29 @@ function GetBetterDiscordPath() {
   }
 }
 
+const meta = `
+/**
+ * @name EmojiShortcut
+ * @author Nathan60107
+ * @description Send emoji faster.
+ * @version 0.0.1
+ */
+`.replace(/^\n/, '')
+
 export default defineConfig({
   input: `src/index.ts`,
   output: [
     {
       file: `plugin/${name}.plugin.js`,
+      strict: false,
       format: 'cjs',
+      banner: meta,
     },
     {
       file: path.join(...GetBetterDiscordPath(), `${name}.plugin.js`),
+      strict: false,
       format: 'cjs',
+      banner: meta,
     },
   ],
   plugins: [
@@ -54,11 +67,10 @@ export default defineConfig({
 
     // .scss files to inline BdApi string
     styles({
-      minimize: true,
       extensions: ['.scss'],
       mode: [
         'inject',
-        (varname, id) => {
+        (varname) => {
           return `BdApi.injectCSS("${name}-styles",${varname})`
         },
       ],

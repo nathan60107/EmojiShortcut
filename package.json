@@ -3,7 +3,6 @@
 	"version": "1.0.0",
 	"description": "Plugin template for better discord",
 	"scripts": {
-		"start": "rollup --config -w",
 		"build": "rollup --config",
 		"watch": "rollup --config -w",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
